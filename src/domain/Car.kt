@@ -2,14 +2,22 @@ package domain
 
 class Car (
     val name: String,
-    var status: Int = 0
+    private var status: Int = 0,
+    private val fuel: Fuel
 ){
 
-
     fun go() {
-        if(true) {
+        if(fuel.isEnough()) {
             this.status++;
         }
+    }
+
+    fun getCarName(): String {
+        return this.name;
+    }
+
+    fun getCarStatus(): Int {
+        return this.status;
     }
 
 }

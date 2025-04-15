@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test
 class CarTest {
 
     private lateinit var car: Car
+    private lateinit var fuel: Fuel
 
     @BeforeEach
     fun setUp() {
-        car = Car("car1")
+        fuel = ChargeFull()
+        car = Car("car1", fuel = fuel)
     }
 
     @Test
@@ -21,6 +23,6 @@ class CarTest {
     @Test
     fun goTest() {
         car.go();
-        assertEquals(1, car.status);
+        assertEquals(1, car.getCarStatus());
     }
 }
